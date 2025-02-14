@@ -1,87 +1,81 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-table {
-    margin: auto;
-    border-collapse: collapse;
-    background-color:black; 
-    border:2px solid white;
-    width:"500";
-}
-td, th {
-    border: 1px solid white;
-    padding: 10px;
-    text-align: center;}
+/* Dark Mode Styles */
 body {
-    background-color: #000000;
-    color: #333;
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.raids {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    max-width: 800px;
+    margin: auto;
+}
+
+h1, h2 {
+    color: #ffcc00;
+}
+
+img.inline {
+    display: inline;
+    vertical-align: middle;
+    width: 20px; /* Adjust size as needed */
+    height: auto;
+    margin: 0 5px; /* Adds space around the image */
+}
+
+
+b, u {
+    color: #ff6600;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #444;
+}
+
+th, td {
+    padding: 10px;
     text-align: center;
 }
 
-header {
+th {
     background-color: #333;
-    color: white;
-    padding: 30px;
+    color: #ffcc00;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+td {
+    background-color: #222;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: rgb(210, 255, 30);
+a {
+    color: #bb86fc;
     text-decoration: none;
-    font-size: 28px;
 }
 
-.hero {
-    background-color: #560063;
-    color: white;
-    padding: 50px 20px;
-}
-.raids {
-    color: white;
-    font-size: 20px;
-    padding: 50px 20px;
-}
-h2 {
-    color: white;
-    font-size: 28px;
-}
-h1 {
-    color: white;
-    font-size: 40px;
-}
-.hero button {
-    background-color: white;
-    color: #098f9e;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 10px;
+a:hover {
+    color: #9b66e4;
+    text-decoration: underline;
 }
 
-.content {
-    padding: 40px;
-    background: rgb(247, 255, 23);
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.raid-link {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    padding: 15px;
-    margin-top: 20px;
+.raid-link:hover {
+    color: #3498db;
 }
