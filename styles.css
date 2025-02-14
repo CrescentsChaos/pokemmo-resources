@@ -5,6 +5,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .raids {
@@ -18,6 +19,8 @@ body {
 
 h1, h2 {
     color: #ffcc00;
+    font-size: 2rem; /* Adjust heading size */
+    margin: 0;
 }
 
 img.inline {
@@ -27,7 +30,6 @@ img.inline {
     height: auto;
     margin: 0 5px; /* Adds space around the image */
 }
-
 
 b, u {
     color: #ff6600;
@@ -78,4 +80,87 @@ a:hover {
 
 .raid-link:hover {
     color: #3498db;
+}
+
+/* Flexbox for layout adjustments */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.logo-img {
+    width: 40px;
+    height: auto;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For larger screens */
+@media (min-width: 768px) {
+    .raids {
+        max-width: 960px;
+    }
+
+    ul {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    li {
+        margin: 0 15px;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+/* For smaller screens (e.g., mobile phones) */
+@media (max-width: 480px) {
+    .logo-img {
+        width: 30px; /* Adjust logo size */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .raid-link {
+        font-size: 1rem;
+    }
+
+    ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
 }
