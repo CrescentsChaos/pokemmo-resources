@@ -9,19 +9,50 @@ body {
 }
 
 .raids {
-    background-color: #1e1e1e;
-    padding: 20px;
+    padding: 40px;
+    background-color: #000000;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    max-width: 800px;
-    margin: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    font-size: 1.5rem;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
 }
 
-h1, h2 {
-    color: #ffcc00;
-    font-size: 2rem; /* Adjust heading size */
-    margin: 0;
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
+
+
+
+
+h1,h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 
 img.inline {
     display: inline;
@@ -60,13 +91,54 @@ td {
 }
 
 a {
-    color: #bb86fc;
+    color: #333;
+    position: relative;
     text-decoration: none;
 }
 
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #91bb26; /* Blue color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
 a:hover {
-    color: #9b66e4;
-    text-decoration: underline;
+    background-color: #d56118;
+}
+
+.back {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #c00000; /* Blue color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.back:hover {
+    background-color: #6f0000;
+}
+
+.home {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #00c02d; /* Blue color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.home:hover {
+    background-color: #025c10;
 }
 
 .raid-link {
