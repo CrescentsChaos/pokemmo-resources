@@ -34,6 +34,28 @@ body {
 .pokemon-card img {
     height: 150px;
 }
+.legendary-container {
+    width: 200px;
+    font-size: 1.1rem;
+    color: rgb(255, 255, 255);
+    background-color: #525252;
+    border-radius: 10px;
+    border-color: #00c02d;
+    border-style: solid;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 30px auto;
+    text-align: flex-start;
+}
+.legendary-container img {
+    height: 150px;
+}
+.legendary-name {
+    font-size: 1.5rem;
+    font-display: bold;
+    color: gold;
+    font-weight: bold;
+}
 .firepokemon-name {
     font-size: 1.5rem;
     font-display: bold;
@@ -134,7 +156,7 @@ a {
 }
 
 a {
-    display: inline-block;
+    display: flexbox;
     padding: 10px 20px;
     font-size: 20px;
     background-color: #26bb37; /* Blue color */
