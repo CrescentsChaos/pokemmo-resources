@@ -22,7 +22,7 @@ body {
     display: flex;
     flex-wrap: wrap; /* Allows wrapping to new lines if needed */
     justify-content: center; /* Centers cards horizontally */
-    gap: 10px; /* Space between cards */
+    gap: 5px; /* Space between cards */
 }
 .pokemon-card {
     width: 300px;
@@ -53,6 +53,16 @@ body {
     margin: 30px auto;
     text-align: flex-start;
 }
+
+.sticky-div {
+    position: sticky;
+    top: 0; /* Stick to the top of the viewport */
+    background-color: #121212;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 .legendary-container img {
     height: 150px;
 }
@@ -60,11 +70,9 @@ body {
     font-size: 1.5rem;
     font-display: bold;
     color: gold;
-    font-weight: bold;
 }
 .firepokemon-name {
     font-size: 1.5rem;
-    font-display: bold;
     color: rgb(237, 87, 0);
     font-weight: bold;
 }
@@ -165,7 +173,7 @@ a {
     display: flexbox;
     padding: 10px 20px;
     font-size: 20px;
-    background-color: #26bb37; /* Blue color */
+    background-color: #1b5dbf; /* Blue color */
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -173,7 +181,7 @@ a {
 }
 
 a:hover {
-    background-color: #d56118;
+    background-color: #05224b;
 }
 .type {
     padding:0px 0px;
@@ -186,10 +194,10 @@ a:hover {
     width: 80px;
 }
 .back {
-    display: inline-block;
-    padding: 10px 20px;
+    display: flexbox;
+    padding: 10px 15px;
     font-size: 20px;
-    background-color: #c00000; /* Blue color */
+    background-color: #c00000; 
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -201,10 +209,10 @@ a:hover {
 }
 
 .home {
-    display: inline-block;
-    padding: 10px 20px;
+    display: flexbox;
+    padding: 10px 15px;
     font-size: 20px;
-    background-color: #00c02d; /* Blue color */
+    background-color: #00c02d; 
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -254,47 +262,4 @@ li {
 .logo-img {
     width: 40px;
     height: auto;
-}
-
-/* Media Queries for Responsiveness */
-
-/* For larger screens */
-@media (min-width: 768px) {
-    .raids {
-        max-width: 960px;
-    }
-
-    ul {
-        flex-direction: row;
-        gap: 20px;
-    }
-
-    li {
-        margin: 0 15px;
-    }
-
-    h1 {
-        font-size: 3rem;
-    }
-}
-
-/* For smaller screens (e.g., mobile phones) */
-@media (max-width: 480px) {
-    .logo-img {
-        width: 30px; /* Adjust logo size */
-    }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    .raid-link {
-        font-size: 1rem;
-    }
-
-    ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
 }
