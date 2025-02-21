@@ -169,28 +169,30 @@ a {
     text-decoration: none;
 }
 
-a {
+.buttons {
     display: flexbox;
     padding: 10px 20px;
     font-size: 20px;
-    background-color: #1b5dbf; /* Blue color */
+    background-color: #1b5dbf;
     color: white;
     text-decoration: none;
     border-radius: 5px;
     transition: background 0.3s;
+    gap: 10px;
 }
 
-a:hover {
+.buttons:hover {
     background-color: #05224b;
 }
-.type {
+.transparent-button {
+    color: white;
     padding:0px 0px;
     background-color: #00000000;
 }
-.type:hover {
+.transparent-button:hover {
     background-color: #00000000;
 }
-.type img {
+.transparent-button img {
     width: 80px;
 }
 .back {
