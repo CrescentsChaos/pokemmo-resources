@@ -30,7 +30,11 @@ body {
     text-align: center;
 }
 .pokemon-card img {
-    height: 150px;
+    height: 125px;
+}
+.firepokemon-name {
+    color: rgb(237, 87, 0);
+    font-weight: bold;
 }
 
 @keyframes fadeIn {
