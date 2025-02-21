@@ -170,15 +170,16 @@ a {
 }
 
 .buttons {
-    display: flexbox;
+    display: flex;
     padding: 10px 20px;
     font-size: 20px;
     background-color: #1b5dbf;
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    border-color: #001464;
+    border-style: solid;
     transition: background 0.3s;
-    gap: 10px;
 }
 
 .buttons:hover {
