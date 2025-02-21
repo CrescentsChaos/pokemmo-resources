@@ -19,21 +19,30 @@ body {
     animation: fadeIn 1s forwards;
 }
 .pokemon-card {
-    width: 300px;
+    width: 500px;
     font-size: 1.1rem;
     color: rgb(255, 255, 255);
     background-color: #525252;
-    border-radius: 15px;
-    padding: 15px;
+    border-radius: 10px;
+    border-color: #00c02d;
+    border-style: solid;
+    padding: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 20px auto;
-    text-align: center;
+    margin: 30px auto;
+    text-align: flex-start;
 }
 .pokemon-card img {
-    height: 125px;
+    height: 150px;
 }
 .firepokemon-name {
+    font-size: 1.5rem;
+    font-display: bold;
     color: rgb(237, 87, 0);
+    font-weight: bold;
+}
+.waterpokemon-name {
+    font-size: 1.5rem;
+    color: rgb(76, 126, 235);
     font-weight: bold;
 }
 
@@ -128,7 +137,7 @@ a {
     display: inline-block;
     padding: 10px 20px;
     font-size: 20px;
-    background-color: #91bb26; /* Blue color */
+    background-color: #26bb37; /* Blue color */
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -138,7 +147,16 @@ a {
 a:hover {
     background-color: #d56118;
 }
-
+.type {
+    padding:0px 0px;
+    background-color: #00000000;
+}
+.type:hover {
+    background-color: #00000000;
+}
+.type img {
+    width: 80px;
+}
 .back {
     display: inline-block;
     padding: 10px 20px;
@@ -169,18 +187,6 @@ a:hover {
     background-color: #025c10;
 }
 
-.raid-link {
-    text-decoration: none;
-    color: white;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.raid-link:hover {
-    color: #3498db;
-}
 
 /* Flexbox for layout adjustments */
 header {
