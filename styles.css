@@ -21,12 +21,16 @@ body {
 .pokemon-card {
     width: 300px;
     font-size: 1.1rem;
-    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    background-color: #525252;
     border-radius: 15px;
     padding: 15px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     margin: 20px auto;
     text-align: center;
+}
+.pokemon-card img {
+    height: 150px;
 }
 
 @keyframes fadeIn {
@@ -83,7 +87,7 @@ img.inline {
 }
 
 b, u {
-    color: #ff6600;
+    color: #eaff00;
 }
 
 table {
