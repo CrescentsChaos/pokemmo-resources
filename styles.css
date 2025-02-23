@@ -26,9 +26,9 @@ body {
 }
 .pokemon-card {
     width: 300px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: rgb(255, 255, 255);
-    background-color: #525252;
+    background-color: #000000;
     border-radius: 10px;
     border-color: #00c02d;
     border-style: solid;
@@ -36,9 +36,6 @@ body {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     margin: 30px auto;
     text-align: flex-start;
-}
-.pokemon-card img {
-    height: 150px;
 }
 .legendary-container {
     width: 200px;
@@ -63,25 +60,47 @@ body {
     font-size: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.legendary-container img {
-    height: 150px;
-}
+
 .legendary-name {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-display: bold;
     color: gold;
 }
 .firepokemon-name {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: rgb(237, 87, 0);
     font-weight: bold;
 }
+.electricpokemon-name {
+    font-size: 1.2rem;
+    color: rgb(217, 255, 46);
+    font-weight: bold;
+}
 .waterpokemon-name {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: rgb(76, 126, 235);
     font-weight: bold;
 }
-
+.icepokemon-name {
+    font-size: 1.2rem;
+    color: rgb(126, 221, 255);
+    font-weight: bold;
+}
+.dragonpokemon-name {
+    font-size: 1.2rem;
+    color: rgb(63, 33, 255);
+    font-weight: bold;
+}
+.poisonpokemon-name {
+    font-size: 1.2rem;
+    color: rgb(122, 41, 184);
+    font-weight: bold;
+}
+.flyingpokemon-name {
+    font-size: 1.2rem;
+    color: rgb(200, 238, 252);
+    font-weight: bold;
+}
 @keyframes fadeIn {
     to {
         opacity: 1;
@@ -94,14 +113,14 @@ body {
 
 
 h1 {
-    font-size: 2rem;
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
     font-weight: bold;
-    color: #fff;
-    text-align: center;
-    background-color: #222;
-    padding: 20px;
-    border-radius: 10px;
-    animation: fadeIn 2s ease-in-out;
+    unicode-bidi: isolate;
 }
 h2 {
     font-size: 1.5rem;
@@ -127,13 +146,7 @@ h2 {
 
 
 
-img.inline {
-    display: inline;
-    vertical-align: middle;
-    width: 20px; /* Adjust size as needed */
-    height: auto;
-    margin: 0 5px; /* Adds space around the image */
-}
+
 
 b, u {
     color: #eaff00;
@@ -265,4 +278,14 @@ li {
 .logo-img {
     width: 40px;
     height: auto;
+}
+
+.PokemonStats-bar {
+    height: 12px;
+    box-shadow: inset 1px 4px #fff6, inset -1px -1px #0000004d;
+    border-radius: 2px;
+    animation-name: PokemonStatBar-anim;
+    animation-duration: .7s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
 }
