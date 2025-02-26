@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="../images/logo.png">
+    <meta property="og:type" content="website">
+    <title>Roaming Legendary</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="sticky-div">
+        <a href="../index/" class="transparent-button"><img src="../images/full-logo.png" alt="tools" style="width: 250px; height: auto;"></a> <br> 
+        <a href="../tools/" class="transparent-button"><img src="../images/back-ui.png" alt="tools" style="width: 30px; height: auto;" align="right"></a>
+        You are here:<span style="color: rgb(77, 77, 77);"> <a href="../index/" class="transparent-button"> Home</a> / <a href="../tools/" class="transparent-button"> Tools</a> / Roaming Legendaries</span>
+    </div>
+    <h1>Current Month's Roaming Legendary Cycle</h1>
+    <p id="legendary"></p>
+    <div class="pokemon-container">
+    <div class="legendary-container">
+        <img id="legendary1" src="" alt="Legendary Pokémon 1">
+        <p class="legendary-name" id="legendary1-name"></p>
+        Region: Kanto <br>
+    </div>
+    <div class="legendary-container"><img id="legendary2" src="" alt="Legendary Pokémon 2">
+        <p class="legendary-name" id="legendary2-name"></p>
+        Region: Johto <br>
+    </div>
+</div>
+    <h2>Infos:</h2>
+    - For legendary birds, obtain 8 badges in Kanto. <br>
+    - For legendary beasts, defeat the Ho-Oh boss fight during the Johto storyline. <br>
+    - The beast will become obtainable in all exterior grass locations in Johto except the Safari Zone (Suicune can also be found while surfing). <br>
+    - The bird can be found in the same way in any exterior location in Kanto including the Sevii Isles. <br>
+    - They don't appear when you use sweet scent. They can only be obtained while single encountering. <br>
+    - The chance to encounter it is very low (players report it as less than 0.1%). <br>
+    <script>
+        const legendaryCycle = [
+            { names: ["Moltres", "Suicune"], images: ["http://play.pokemonshowdown.com/sprites/gen5ani/moltres.gif", "http://play.pokemonshowdown.com/sprites/gen5ani/suicune.gif"] },
+            { names: ["Articuno", "Raikou"], images: ["http://play.pokemonshowdown.com/sprites/gen5ani/articuno.gif", "http://play.pokemonshowdown.com/sprites/gen5ani/raikou.gif"] },
+            { names: ["Zapdos", "Entei"], images: ["http://play.pokemonshowdown.com/sprites/gen5ani/zapdos.gif", "http://play.pokemonshowdown.com/sprites/gen5ani/entei.gif"] }
+        ];
+        const currentMonth = new Date().getMonth() + 1; 
+        const cycleIndex = (currentMonth - 2) % 3;
+        const legendaryPair = legendaryCycle[(cycleIndex + 3) % 3]; 
+        document.getElementById("legendary1").src = legendaryPair.images[0];
+        document.getElementById("legendary1").alt = legendaryPair.names[0];
+        document.getElementById("legendary1-name").textContent = legendaryPair.names[0];
+        document.getElementById("legendary2").src = legendaryPair.images[1];
+        document.getElementById("legendary2").alt = legendaryPair.names[1];
+        document.getElementById("legendary2-name").textContent = legendaryPair.names[1];
+    </script>
+
+</body>
+</html>
