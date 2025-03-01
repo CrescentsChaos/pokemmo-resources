@@ -59,6 +59,7 @@ body {
     padding: 10px;
     font-size: 20px;
     box-shadow: 0 1px 30px rgba(0, 0, 0, 1);
+    z-index: 1000;
 }
 
 .legendary-name {
