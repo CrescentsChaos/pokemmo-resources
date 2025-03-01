@@ -275,7 +275,9 @@ li {
     width: 40px;
     height: auto;
 }
-
+img {
+    z-index: 1; /* Lower than sticky div */
+}
 .PokemonStats-bar {
     height: 12px;
     box-shadow: inset 1px 4px #fff6, inset -1px -1px #0000004d;
