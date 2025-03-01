@@ -66,7 +66,7 @@ body {
     font-display: bold;
     color: gold;
 }
-.firepokemon-name, .electricpokemon-name, .waterpokemon-name, .icepokemon-name, .dragonpokemon-name, .poisonpokemon-name, .flyingpokemon-name {
+.groundpokemon-name, .ghostpokemon-name, .darkpokemon-name, .grasspokemon-name, .normalpokemon-name, .firepokemon-name, .electricpokemon-name, .waterpokemon-name, .icepokemon-name, .dragonpokemon-name, .poisonpokemon-name, .flyingpokemon-name {
     font-size: 1.2rem;
     font-weight: bold;
 }
@@ -77,6 +77,12 @@ body {
 .dragonpokemon-name { color: rgb(63, 33, 255); }
 .poisonpokemon-name { color: rgb(122, 41, 184); }
 .flyingpokemon-name { color: rgb(200, 238, 252); }
+.normalpokemon-name { color: rgb(168, 168, 168); }
+.grasspokemon-name { color: rgb(14, 110, 9); }
+.darkpokemon-name { color: rgb(67, 55, 55); }
+.ghostpokemon-name { color: rgb(72, 41, 116); }
+.groundpokemon-name { color: rgb(191, 152, 53); }
+.fightingpokemon-name { color: rgb(163, 17, 17); }
 @keyframes fadeIn {
     to {
         opacity: 1;
