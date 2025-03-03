@@ -8,6 +8,7 @@ let formattedMinutes = Math.floor(pokeMinutes).toString().padStart(2, '0');
 
 let dayPhase = (formattedHours >= 4 && formattedHours < 21) ? '☀️Day' : '🌙Night';
 document.getElementById("pokeTime").innerText = `${formattedHours}:${formattedMinutes} ${dayPhase}`;
+updateGameWeek();
 }   
 function updateGameWeek() {
     let realDaysSinceEpoch = Math.floor(Date.now() / (1000 * 60 * 60 * 24)); // Real-world days since 1970
