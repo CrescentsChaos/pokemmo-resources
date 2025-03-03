@@ -337,3 +337,10 @@ img {
     visibility: visible;
     opacity: 1;
 }
+.time-box {
+    font-size: 5rem;
+    display: flex;
+    box-align: center;
+    padding: 15px;
+    display: inline-block;
+}
