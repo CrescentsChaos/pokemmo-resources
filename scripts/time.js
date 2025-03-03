@@ -11,15 +11,21 @@ document.getElementById("pokeTime").innerText = `${formattedHours}:${formattedMi
 updateGameWeek();
 }   
 function updateGameWeek() {
-    let realDaysSinceEpoch = Math.floor(Date.now() / (1000 * 60 * 60 * 24)); // Real-world days since 1970
-    let pokeDaysSinceEpoch = Math.floor(realDaysSinceEpoch * 4); // 1 real day = 4 PokéMMO days
-    let pokeDayIndex = pokeDaysSinceEpoch % 7; // Loop within a 7-day week
-
+    let now = new Date();
+    
+    // Get real-world timestamp in hours since epoch
+    let realHoursSinceEpoch = Math.floor(Date.now() / (1000 * 60 * 60));
+    
+    // Calculate in-game day index (each in-game day is 6 real hours)
+    let pokeDayIndex = (Math.floor(realHoursSinceEpoch / 6)-1) % 7;
+    
     let pokeWeekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    
     let currentPokeDay = pokeWeekDays[pokeDayIndex];
 
     document.getElementById("pokeDay").innerText = `📅 In-game Day: ${currentPokeDay}`;
 }
+
 
 updatePokeMMOTime();
 updateGameWeek();
