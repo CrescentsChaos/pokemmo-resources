@@ -29,5 +29,5 @@ function updateGameWeek() {
 
 updatePokeMMOTime();
 updateGameWeek();
-setInterval(updatePokeMMOTime, 5000);
+setInterval(updatePokeMMOTime, 1000);
 setInterval(updateGameWeek, 5000);
