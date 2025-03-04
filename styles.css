@@ -93,13 +93,17 @@ body {
 .spdef { color: rgb(221, 221, 17); }
 .spd { color: rgb(24, 222, 206); }
 
-.hp,.atk,.def,.spatk,.spdef,.spd{font-size: 1.2rem;
+.hp,.atk,.def,.spatk,.spdef,.spd{font-size: 1rem;
     font-weight: bold;
     padding: 20px;
     border-radius: 10px;
     background-color: #333;
     border-color: #000000;
     border-style: solid;
+    text-shadow: -2px -2px 0 #6e6e6e,
+    2px -1px 0 #6e6e6e,
+    -1px  2px 0 #6e6e6e,
+     2px  2px 0 #6e6e6e;
 }
 @keyframes fadeIn {
     to {
