@@ -85,6 +85,22 @@ body {
 .groundpokemon-name { color: rgb(191, 152, 53); }
 .rockpokemon-name { color: rgb(205, 198, 59); }
 .fightingpokemon-name { color: rgb(163, 17, 17); }
+
+.hp { color: rgb(0, 214, 57); }
+.atk { color: rgb(150, 5, 0); }
+.def { color: rgb(174, 138, 6); }
+.spatk { color: rgb(167, 10, 198); }
+.spdef { color: rgb(221, 221, 17); }
+.spd { color: rgb(24, 222, 206); }
+
+.hp,.atk,.def,.spatk,.spdef,.spd{font-size: 1.2rem;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #333;
+    border-color: #000000;
+    border-style: solid;
+}
 @keyframes fadeIn {
     to {
         opacity: 1;
