@@ -391,14 +391,17 @@ input {
     max-height: 150px;
     overflow-y: auto;
     display: none;
+    z-index: 1000;
 }
 .dropdown div {
     padding: 10px;
     cursor: pointer;
     color: black;
+    z-index: 1000;
 }
 .dropdown div:hover {
     background: rgb(113, 113, 113);
+    z-index: 1000;
 }
 .searchbutton {
     padding: 10px;
