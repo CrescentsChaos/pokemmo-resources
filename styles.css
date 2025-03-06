@@ -19,7 +19,7 @@ body::before {
     background-size: cover; /* Makes sure the image covers the entire viewport */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents repeating the image */
-    opacity: 0.3; /* Set the desired opacity here */
+    opacity: 0.1; /* Set the desired opacity here */
     z-index: -1; /* Ensures the background is behind the content */
     background-attachment: fixed; /* Keeps the background fixed while scrolling */
 }
@@ -132,7 +132,7 @@ body::before {
 
 
 
-h1 {
+h1{
     position: relative;
     display: block;
     font-size: 2em;
