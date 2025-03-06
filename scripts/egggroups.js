@@ -66,29 +66,34 @@ async function searchPokemon() {
 
     const data = await fetchPokemonData();
 
+    // Define the regions you're interested in
+    const validRegions = ["Kanto", "Johto", "Hoenn", "Sinnoh", "Unova"];
+
     const filteredPokemon = data.filter(pokemon => {
+        // Filter Pokémon by region (Kanto, Johto, Hoenn, Sinnoh, Unova)
+        const validRegion = validRegions.includes(pokemon.region);
+
         // Split egg groups from JSON and trim spaces
         const groups = pokemon.Egg.split(',').map(g => g.trim().toLowerCase());
 
-        if (eggGroup1 && eggGroup2) {
-            return groups.includes(eggGroup1.toLowerCase()) && groups.includes(eggGroup2.toLowerCase());
-        } else if (eggGroup1) {
-            return groups.includes(eggGroup1.toLowerCase());
-        } else if (eggGroup2) {
-            return groups.includes(eggGroup2.toLowerCase());
-        }
-        return false;
+        const matchesEggGroups = 
+            (eggGroup1 && eggGroup2) 
+                ? groups.includes(eggGroup1.toLowerCase()) && groups.includes(eggGroup2.toLowerCase()) 
+                : (eggGroup1 ? groups.includes(eggGroup1.toLowerCase()) : (eggGroup2 ? groups.includes(eggGroup2.toLowerCase()) : true));
+
+        return validRegion && matchesEggGroups;
     });
 
-    // Sort results by name in descending order
+    // Sort results by name in ascending order
     filteredPokemon.sort((a, b) => a.Name.localeCompare(b.Name));
 
     resultsDiv.innerHTML = filteredPokemon.length
         ? filteredPokemon.map(p => `
             <div class="pokemon-result">
-                <img src="${p.sprite}" alt="${p.Name}" class="pokemon-sprite">
+                <img src="${p.sprite.replace('ani/', 'gen5ani/')}" alt="${p.Name}" class="pokemon-sprite">
                 <span>${p.Name}</span>
             </div>
         `).join("")
         : "<p>No Pokémon found</p>";
 }
+
