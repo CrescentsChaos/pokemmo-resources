@@ -14,20 +14,19 @@
         <a href="../../tools/" class="transparent-button"><img src="../../images/back-ui.png" alt="tools" style="width: 30px; height: auto;" align="right"></a> <br>
         You are here:<span style="color: rgb(77, 77, 77);"> <a href="../../" class="transparent-button"> Home</a> / <a href="../../tools/" class="transparent-button"> Tools</a> / Egg Groups</span>
     </div>
-    <h2>Pokémon Egg Group Search</h2>
-
+    <h1>Pokémon Egg Group Search</h1>
+    <img src="https://art.ngfiles.com/images/3148000/3148952_witchparfait_pokemon-breeding.png?f1681250244" alt="egg group" width='100%' height="auto" display="block">
     <div class="autocomplete">
-        <input type="text" id="eggGroup1" placeholder="Enter Egg Group 1" oninput="showSuggestions(this, 'dropdown1')">
+        <input type="text" id="eggGroup1" placeholder="Egg Group 1" oninput="showSuggestions(this, 'dropdown1')">
         <div class="dropdown" id="dropdown1"></div>
     </div>
 
     <div class="autocomplete">
-        <input type="text" id="eggGroup2" placeholder="Enter Egg Group 2" oninput="showSuggestions(this, 'dropdown2')">
+        <input type="text" id="eggGroup2" placeholder="Egg Group 2" oninput="showSuggestions(this, 'dropdown2')">
         <div class="dropdown" id="dropdown2"></div>
     </div>
 
-    <br>
-    <button onclick="searchPokemon()">Search</button>
+    <button class="searchbutton" onclick="searchPokemon()">Search</button>
 
     <div id="results"></div>
 

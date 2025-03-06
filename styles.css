@@ -372,8 +372,8 @@ img {
 }
 
 .pokemon-sprite {
-    width: 50px;
-    height: auto;
+    width: auto;
+    height: 50px;
 }
 .autocomplete {
     position: relative;
@@ -395,7 +395,18 @@ input {
 .dropdown div {
     padding: 10px;
     cursor: pointer;
+    color: black;
 }
 .dropdown div:hover {
-    background: lightgray;
+    background: rgb(113, 113, 113);
+}
+.searchbutton {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #d4de45;
+    font-weight: bold;
+    font-size: .9rem;
+}
+.searchbutton:hover {
+    background-color: #8b922f;
 }

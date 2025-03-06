@@ -80,6 +80,9 @@ async function searchPokemon() {
         return false;
     });
 
+    // Sort results by name in descending order
+    filteredPokemon.sort((a, b) => a.Name.localeCompare(b.Name));
+
     resultsDiv.innerHTML = filteredPokemon.length
         ? filteredPokemon.map(p => `
             <div class="pokemon-result">
