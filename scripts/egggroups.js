@@ -1,8 +1,8 @@
 // Predefined egg groups (adjust if needed)
 const eggGroups = [
     "Monster", "Water A", "Bug", "Flying", "Field", "Fairy",
-    "Plant", "Humanoid", "Water C", "Mineral", "Amorphous",
-    "Water B", "Ditto", "Dragon", "Undiscovered"
+    "Plant", "Humanoid", "Water B", "Mineral", "Chaos",
+    "Water C", "Ditto", "Dragon", "Undiscovered"
 ];
 
 async function fetchPokemonData() {
