@@ -2,7 +2,7 @@
 body {
     background-color: #181818;
     color: #e0e0e0;
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
@@ -105,9 +105,9 @@ body::before {
 .fightingpokemon-name { color: rgb(163, 17, 17); }
 
 .hp { color: rgb(0, 214, 57); }
-.atk { color: rgb(150, 5, 0); }
-.def { color: rgb(174, 138, 6); }
-.spatk { color: rgb(167, 10, 198); }
+.atk { color: rgb(255, 8, 0); }
+.def { color: rgb(170, 133, 0); }
+.spatk { color: rgb(162, 1, 194); }
 .spdef { color: rgb(221, 221, 17); }
 .spd { color: rgb(24, 222, 206); }
 
@@ -118,10 +118,6 @@ body::before {
     background-color: #333;
     border-color: #000000;
     border-style: solid;
-    text-shadow: -2px -2px 0 #6e6e6e,
-    2px -1px 0 #6e6e6e,
-    -1px  2px 0 #6e6e6e,
-     2px  2px 0 #6e6e6e;
 }
 
 @keyframes fadeIn {
@@ -138,37 +134,22 @@ body::before {
 h1 {
     position: relative;
     display: block;
-    font-size: 2rem; /* Large but balanced */
+    font-size: 1.7rem; /* Large but balanced */
     font-weight: 800; /* Slightly less bold for better readability */
     color: #f4ea2a; /* Gold color matching h2 */
-    text-align: center;
-    text-transform: uppercase; /* Gives a strong, premium look */
+    text-align: center;/* Gives a strong, premium look */
     letter-spacing: 2px; /* Slight spacing for elegance */
     background: linear-gradient(135deg, #222, #111); /* Dark, sleek background */
     padding: 20px;
     border-radius: 12px;
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
-    border: 2px solid rgba(255, 215, 0, 0.4); /* Subtle golden border */
-    animation: fadeIn 1.5s ease-in-out;
+    border: 2px solid rgba(255, 215, 0, 0.4);
 } 
-h1::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 10%, transparent 80%);
-    border-radius: 12px;
-    z-index: -1;
-    opacity: 0.8;
-}
 
 h2 {
     font-size: 1.5rem; /* Slightly larger for emphasis */
     font-weight: bold;
-    color: #f6ed48; /* A brighter gold shade */
+    color: #f4ea2a; /* A brighter gold shade */
     text-align: center;
     background: linear-gradient(135deg, #333, #111); /* Smooth gradient */
     padding: 20px;
@@ -176,30 +157,10 @@ h2 {
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
     letter-spacing: 1.5px; /* Slight spacing for elegance */
     text-transform: uppercase; /* Gives a strong look */
-    border: 2px solid rgba(255, 215, 0, 0.3); /* Subtle golden border */
+    border: 2px solid  rgba(255, 215, 0, 0.4); /* Subtle golden border */
     animation: fadeIn 1.5s ease-in-out, glow 1.5s infinite alternate;
 }
 
-@keyframes glow {
-    from {
-        text-shadow: 0 0 5px #f4ea2a, 0 0 10px #f4ea2a;
-    }
-    to {
-        text-shadow: 0 0 10px #f4ea2a, 0 0 20px #ffeb3b;
-    }
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 
 
