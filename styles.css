@@ -2,7 +2,7 @@
 body {
     background-color: #181818;
     color: #e0e0e0;
-    font-family: Arial, sans-serif;
+    font-family: 'Press Start 2P', cursive;
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
@@ -49,6 +49,7 @@ body::before {
     border-color: #00c02d;
     border-style: solid;
     padding: 20px;
+    font-family: 'Press Start 2P', cursive;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     margin: 20px;
     text-align: flex-start;
@@ -62,6 +63,7 @@ body::before {
     border-color: #00c02d;
     border-style: solid;
     padding: 20px;
+    font-family: 'Press Start 2P', cursive;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     margin: 30px auto;
     text-align: flex-start;
@@ -121,6 +123,7 @@ body::before {
     -1px  2px 0 #6e6e6e,
      2px  2px 0 #6e6e6e;
 }
+
 @keyframes fadeIn {
     to {
         opacity: 1;
@@ -132,41 +135,71 @@ body::before {
 
 
 
-h1{
+h1 {
     position: relative;
     display: block;
-    font-size: 2em;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    unicode-bidi: isolate;
-    z-index: -1;
+    font-size: 2rem; /* Large but balanced */
+    font-weight: 800; /* Slightly less bold for better readability */
+    color: #f4ea2a; /* Gold color matching h2 */
     text-align: center;
-}
-h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #d3d74d;
-    text-align: center;
-    background-color: #222;
+    text-transform: uppercase; /* Gives a strong, premium look */
+    letter-spacing: 2px; /* Slight spacing for elegance */
+    background: linear-gradient(135deg, #222, #111); /* Dark, sleek background */
     padding: 20px;
-    border-radius: 10px;
-    animation: fadeIn 2s ease-in-out;
+    border-radius: 12px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+    border: 2px solid rgba(255, 215, 0, 0.4); /* Subtle golden border */
+    animation: fadeIn 1.5s ease-in-out;
+} 
+h1::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 10%, transparent 80%);
+    border-radius: 12px;
+    z-index: -1;
+    opacity: 0.8;
 }
 
+h2 {
+    font-size: 1.5rem; /* Slightly larger for emphasis */
+    font-weight: bold;
+    color: #f6ed48; /* A brighter gold shade */
+    text-align: center;
+    background: linear-gradient(135deg, #333, #111); /* Smooth gradient */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+    letter-spacing: 1.5px; /* Slight spacing for elegance */
+    text-transform: uppercase; /* Gives a strong look */
+    border: 2px solid rgba(255, 215, 0, 0.3); /* Subtle golden border */
+    animation: fadeIn 1.5s ease-in-out, glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #f4ea2a, 0 0 10px #f4ea2a;
+    }
+    to {
+        text-shadow: 0 0 10px #f4ea2a, 0 0 20px #ffeb3b;
+    }
+}
+
+/* Fade-in animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-10px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-
 
 
 
@@ -207,18 +240,24 @@ a {
     padding: 10px 20px;
     font-size: 20px;
     font-weight: bold;
-    background-color: #d4de45;
-    color: rgb(0, 0, 0);
+    background-color: #6a6a6a;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     border-radius: 5px;
     border: 1px solid #000000;
-    transition: background 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
 }
 
 .buttons:hover {
-    background-color: #a1a835;
+    background-color: #675f6a;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+.buttons:active {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(1px);
 }
 
 .transparent-button {
