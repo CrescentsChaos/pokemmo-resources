@@ -2,7 +2,7 @@
 const eggGroups = [
     "Monster", "Water A", "Bug", "Flying", "Field", "Fairy",
     "Plant", "Humanoid", "Water B", "Mineral", "Chaos",
-    "Water C", "Ditto", "Dragon", "Undiscovered"
+    "Water C", "Ditto", "Dragon", "Genderless","Cannot Breed"
 ];
 
 async function fetchPokemonData() {
