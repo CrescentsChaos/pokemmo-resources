@@ -378,19 +378,19 @@ img {
     cursor: pointer;
     padding: 5px 5px;
     background-color: #007bff00;
-    color: white;
+    color: rgb(167, 196, 18);
     border-radius: 5px;
 }
 
 .hover-text {
     visibility: hidden;
     width: 90px;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+    background-color: rgb(31, 31, 31);
+    color: #f4ea2a;
     text-align: center;
     border-radius: 8px;
     border-style: solid;
-    border-color: rgb(255, 0, 0);
+    border-color: #f4ea2a;
     padding: 10px;
     position: absolute;
     z-index: 1;
@@ -410,7 +410,7 @@ img {
     margin-left: -10px;
     border-width: 10px;
     border-style: solid;
-    border-color: rgb(255, 0, 0) transparent transparent transparent;
+    border-color: #f4ea2a transparent transparent transparent;
 }
 
 .hover-box:hover .hover-text {
