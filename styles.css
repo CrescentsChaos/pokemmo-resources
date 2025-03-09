@@ -473,3 +473,7 @@ input {
 .searchbutton:hover {
     background-color: #8b922f;
 }
+.pokemon-sprite{
+    width:  auto;
+    height: 100px;
+}
