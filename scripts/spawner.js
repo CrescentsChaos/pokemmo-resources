@@ -25,6 +25,7 @@ async function loadPokemonData() {
 
 // Select a Pokémon based on rarity
 function selectRandomPokemon() {
+    document.getElementById("pokemonInput").value = "";
     if (pokemonData.length === 0) return;
 
     let weightedList = [];
@@ -47,21 +48,24 @@ function selectRandomPokemon() {
     document.getElementById("pokemonRegion").innerText = ` ${currentPokemon.region}`;
     document.getElementById("pokemonName").innerText = `Name: ???`; // Hide the name until caught
     document.getElementById("message").innerText = ""; // Clear message
+    document.getElementById("pokemonInput").value = ""; // Clear input field
 }
 
 // Check if the user typed the correct name
 function catchPokemon() {
     let userInput = document.getElementById("pokemonInput").value.trim();
-
     if (!currentPokemon) return;
 
     if (userInput.toLowerCase() === currentPokemon.Name.toLowerCase()) {
-        document.getElementById("message").innerText = "🎉 You caught " + currentPokemon.Name + "!";
+        document.getElementById("pokemonInput").value = "";
+        document.getElementById("message").innerText = "🎉 You caught a " + currentPokemon.Name + "!";
         document.getElementById("message").style.color = "green";
         document.getElementById("pokemonName").innerText = `Name: ${currentPokemon.Name}`;
     } else {
-        document.getElementById("message").innerText = "❌ The Pokémon escaped!";
+        document.getElementById("pokemonInput").value = "";
+        document.getElementById("message").innerText = `❌ ${currentPokemon.Name} fled!`;
         document.getElementById("message").style.color = "red";
+        reloadPokemon();
     }
 }
 
