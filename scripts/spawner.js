@@ -61,6 +61,7 @@ function catchPokemon() {
         document.getElementById("message").innerText = "🎉 You caught a " + currentPokemon.Name + "!";
         document.getElementById("message").style.color = "green";
         document.getElementById("pokemonName").innerText = `Name: ${currentPokemon.Name}`;
+        reloadPokemon();
     } else {
         document.getElementById("pokemonInput").value = "";
         document.getElementById("message").innerText = `❌ ${currentPokemon.Name} fled!`;
