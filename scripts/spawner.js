@@ -25,7 +25,7 @@ async function loadPokemonData() {
 
 // Select a Pokémon based on rarity
 function selectRandomPokemon() {
-    document.getElementById("pokemonInput").value = "";
+    document.getElementById("pokemonInput").value="";
     if (pokemonData.length === 0) return;
 
     let weightedList = [];
