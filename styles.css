@@ -4,6 +4,7 @@ body {
     background-color: #181818;
     color: #e0e0e0;
     font-family: 'Poppins', sans-serif;
+    font-weight: 200;
     margin: 0;
     padding: min(3em,5%);
     box-sizing: border-box;
@@ -139,7 +140,7 @@ body::before {
 h1 {
     position: relative;
     display: block;
-    font-size: 1.7rem; /* Large but balanced */
+    font-size: clamp(1.5rem,calc(7vw+1rem),3rem); /* Large but balanced */
     font-weight: 800; /* Slightly less bold for better readability */
     color: #f4ea2a; /* Gold color matching h2 */
     text-align: center;/* Gives a strong, premium look */
@@ -171,7 +172,7 @@ h2 {
 
 
 table {
-    width: 100%;
+    max-width: 100%;
     border-collapse: collapse;
     margin-top: min(5em,1%);
 }
@@ -360,6 +361,7 @@ li {
     height: auto;
 }
 img {
+    max-width: 100%;
     z-index: 1; /* Lower than sticky div */
 }
 .PokemonStats-bar {
