@@ -2,9 +2,9 @@
 body {
     justify-content: center;
     background-color: #181818;
-    color: #e0e0e0;
+    color: #b7b7b7;
     font-family: 'Poppins', sans-serif;
-    font-weight: 200;
+    font-weight: 700;
     margin: 0;
     padding: min(3em,5%);
     box-sizing: border-box;
@@ -41,36 +41,35 @@ body::before {
     display: flex;
     padding: min(5em,8%);
     flex-wrap: wrap; /* Allows wrapping to new lines if needed */
-    justify-content: center; /* Centers cards horizontally */
-    gap: 5px; /* Space between cards */
+    justify-content: space-around; /* Centers cards horizontally */
+    gap: 1px; /* Space between cards */
+    align-items: center;
 }
 .pokemon-card {
-    width: 300px;
+    width: 200px;
     font-size: 1rem;
-    color: rgb(255, 255, 255);
+    color: #b7b7b7;
     background-color: #000000;
     border-radius: 10px;
-    border-color: #00c02d;
+    border-color: #f4ea2a;
     border-style: solid;
-    padding: 20px;
+    padding: min(1em, 2%);
     font-family: 'Poppins', sans-serif;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 20px;
-    text-align: flex-start;
+    margin: 2px;
 }
 .legendary-container {
     width: 200px;
-    font-size: 1.1rem;
-    color: rgb(255, 255, 255);
-    background-color: #525252;
+    font-size: 1rem;
+    color: #b7b7b7;
+    background-color: #000000;
     border-radius: 10px;
-    border-color: #00c02d;
+    border-color: #f4ea2a;
     border-style: solid;
-    padding: 20px;
+    padding: min(1em, 2%);
     font-family: 'Poppins', sans-serif;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 30px auto;
-    text-align: flex-start;
+    margin: 5px;
 }
 
 .sticky-div {
@@ -88,7 +87,7 @@ body::before {
 .legendary-name {
     font-size: 1.2rem;
     font-display: bold;
-    color: gold;
+    color: #f4ea2a;
 }
 .steelpokemon-name,.rockpokemon-name, .fightingpokemon-name, .groundpokemon-name, .ghostpokemon-name, .darkpokemon-name, .grasspokemon-name, .normalpokemon-name, .firepokemon-name, .electricpokemon-name, .waterpokemon-name, .icepokemon-name, .dragonpokemon-name, .poisonpokemon-name, .flyingpokemon-name {
     font-size: 1.2rem;
