@@ -59,9 +59,10 @@ body::before {
     margin: 2px;
 }
 .legendary-container {
-    width: 200px;
+    width: 250px;
+    height: 200px;
     font-size: 1rem;
-    color: #b7b7b7;
+    color: #ffffff;
     background-color: #000000;
     border-radius: 10px;
     border-color: #f4ea2a;
@@ -69,7 +70,7 @@ body::before {
     padding: min(1em, 2%);
     font-family: 'Poppins', sans-serif;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 5px;
+    margin: 8px;
 }
 
 .sticky-div {
@@ -87,7 +88,7 @@ body::before {
 .legendary-name {
     font-size: 1.2rem;
     font-display: bold;
-    color: #f4ea2a;
+    color: #ffffff;
 }
 .steelpokemon-name,.rockpokemon-name, .fightingpokemon-name, .groundpokemon-name, .ghostpokemon-name, .darkpokemon-name, .grasspokemon-name, .normalpokemon-name, .firepokemon-name, .electricpokemon-name, .waterpokemon-name, .icepokemon-name, .dragonpokemon-name, .poisonpokemon-name, .flyingpokemon-name {
     font-size: 1.2rem;
@@ -173,15 +174,16 @@ h2 {
 table {
     max-width: 100%;
     border-collapse: collapse;
-    margin-top: min(5em,1%);
+    margin-top: min(1em,8%);
 }
 
 table, th, td {
-    border: 1px solid #444;
+    border: 2px solid #444;
     border-radius: 5%;
 }
 
 th, td {
+    width: 250px;
     padding: min(8em,.8%);
     text-align: center;
 }
@@ -231,8 +233,8 @@ a {
     content: "";
     background: linear-gradient(
         45deg,
-        #ff0000, #ff00ff, #7b00ff, #0800ff,
-        #00ffbb, #00ff11, #ffff00, #ffbb00,#ff5900,#ff3700
+        #b2ac04, #f6ff00, #b2ac04, #f6ff00,
+        #b2ac04, #f6ff00, #b2ac04, #f6ff00,#b2ac04,#f6ff00
     );
     position: absolute;
     top: -2px;
@@ -480,4 +482,13 @@ input {
 .pokemon-sprite{
     width:  auto;
     height: 100px;
+}
+.video-container {
+    display: flex; /* Corrected from flexbox */
+    justify-content: center; 
+    align-items: center;
+    width: 800px;
+    height: 450px;
+    max-width: 100%;
+    margin: auto; /* Centers the container */
 }
