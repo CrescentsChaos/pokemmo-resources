@@ -7,6 +7,7 @@
     <meta property="og:type" content="website">
     <title>Spawner</title>
     <link rel="stylesheet" href="../../styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="sticky-div">
@@ -20,9 +21,10 @@
         <p class="hint">Hint: This Pokémon is from <span id="pokemonRegion"></span> region</p>
         <input type="text" id="pokemonInput" class="input-box" placeholder="Type Pokémon Name">
         <button class="searchbutton" onclick="catchPokemon()">Catch</button>
-        <button class="searchbutton"onclick="reloadPokemon()">Respawn</button>
+        <button class="searchbutton" onclick="skipPokemon()">Skip</button>
         <p id="message" class="message"></p>
     </div>
+    <canvas id="resultsChart" width="400" height="200" style="display: none;"></canvas>
     <script src="../../scripts/spawner.js"></script>
 </body>
 </html>
