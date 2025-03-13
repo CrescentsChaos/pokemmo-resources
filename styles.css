@@ -494,3 +494,41 @@ input {
     max-width: 100%;
     margin: auto; /* Centers the container */
 }
+.quiz-container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: rgb(39, 39, 39);
+    padding: 20px;
+    border-radius: 10px;
+    border-color: #d4de45;
+    border-style: solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.question {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.options button, .restart-button {
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    background: #d4de45;
+    color: rgb(49, 49, 49);
+    cursor: pointer;
+    border-radius: 5px;
+}
+.options button:hover , .restart-button:hover {
+    background: #807805;
+}
+.score {
+    margin-top: 20px;
+    font-size: 18px;
+}
+.chart-container {
+    max-width: 400px;
+    margin: 20px auto;
+}
