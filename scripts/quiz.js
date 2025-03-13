@@ -83,6 +83,7 @@ function restartQuiz() {
     document.getElementById("score").innerText = score;
     document.getElementById("restart").style.display = "none";
     document.getElementById("resultChart").getContext('2d').clearRect(0, 0, 400, 400);
+    questions = [];
     loadQuestion();
 }
 
