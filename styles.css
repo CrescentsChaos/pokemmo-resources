@@ -39,14 +39,15 @@ body::before {
 }
 .pokemon-container {
     display: flex;
-    padding: min(5em,8%);
+    padding: min(2em,2%);
     flex-wrap: wrap; /* Allows wrapping to new lines if needed */
     justify-content: space-around; /* Centers cards horizontally */
     gap: 1px; /* Space between cards */
     align-items: center;
 }
 .pokemon-card {
-    width: 200px;
+    width: 250px;
+    height: 320px;  
     font-size: 1rem;
     color: #b7b7b7;
     background-color: #000000;
@@ -56,7 +57,7 @@ body::before {
     padding: min(1em, 2%);
     font-family: 'Poppins', sans-serif;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 2px;
+    margin: 1px;
 }
 .legendary-container {
     width: 250px;
