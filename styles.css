@@ -533,3 +533,20 @@ input {
     max-width: 400px;
     margin: 20px auto;
 }
+figure {
+	width: 96px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+    margin: 5px;
+	overflow-wrap: break-word;
+}
+figure figcaption {
+	font-size: 12px;
+	text-align: center;
+}
+.sprite-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between figures */
+}
