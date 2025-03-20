@@ -90,8 +90,10 @@ async function searchPokemon() {
     resultsDiv.innerHTML = filteredPokemon.length
         ? filteredPokemon.map(p => `
             <div class="pokemon-result">
+                <figure id="${p.Name}">
                 <img src="${p.sprite.replace('ani/', 'gen5ani/')}" alt="${p.Name}" class="pokemon-sprite">
-                <span>${p.Name}</span>
+                <figcaption>${p.Name}</figcaption>
+                </figure>
             </div>
         `).join("")
         : "<p>No Pokémon found</p>";
