@@ -57,7 +57,7 @@
                         nameParts = nameParts.filter(word => word !== "(M)" && word !== "(F)");
 
                         const nickname = nameParts.slice(0, -1).join(" ");
-                        const species = nameParts[nameParts.length - 1];
+                        const species = nameParts[nameParts.length - 1].replace("(", "").replace(")", "");
 
                         pokemon = { 
                             name: species,
