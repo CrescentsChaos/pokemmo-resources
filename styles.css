@@ -603,3 +603,18 @@ textarea {
     background: #6d6d6d;
     font-weight: 800;
 }
+img.pokemon-img{
+    width: auto;
+    height: 150px;
+}
+img.item-img{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+}
+div.img{
+    position: relative;
+    margin: 15px;
+}

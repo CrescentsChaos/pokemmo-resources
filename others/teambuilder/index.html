@@ -95,8 +95,10 @@
             team.forEach((pokemon, index) => {
                 teamContainer.innerHTML += `
                     <div class="paste-card">
-                        <img src="${pokemon.sprite}" class="pokemon-sprite">
-                        <img src="${pokemon.itemIcon}" class="item-icon">
+                        <div class="img">
+                        <img class="pokemon-img" src="${pokemon.sprite}" class="pokemon-sprite">
+                        <img class="item-img" src="${pokemon.itemIcon}" class="item-icon">
+                        </div>
                         <div class="details" id="details-${index}">
                             <strong>${pokemon.name}  </strong><button onclick="toggleEdit(${index})"><img src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png" width="20px"></button><br>  
                             Item: ${pokemon.item}<br>
