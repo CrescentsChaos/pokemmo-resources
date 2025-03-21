@@ -47,7 +47,7 @@ body::before {
 }
 .pokemon-card {
     width: 250px;
-    height: 320px;  
+    height: 350px;  
     font-size: 1rem;
     color: #b7b7b7;
     background-color: #000000;
@@ -270,7 +270,7 @@ a {
     font-weight: bold;
   }
 
-.transparent-button {
+.c {
     color: white;
     padding: 0;
     background-color: transparent;
@@ -549,4 +549,57 @@ figure figcaption {
     display: flex;
     flex-wrap: wrap;
     gap: 10px; /* Space between figures */
+}
+.hidden {
+    display: none;
+}
+.item-icon {
+    width: 32px;
+    height: 32px;
+    margin-top: 5px;
+}
+.details {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+}
+.moves {
+    font-size: 14px;
+    margin-top: 5px;
+}
+textarea {
+    width: 100%;
+    height: 150px;
+    margin-top: 20px;
+    background: #333;
+    color: #fff;
+    border: 1px solid #555;
+    padding: 10px;
+}
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+.paste-card {
+    background: black;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    width: 230px;
+    height:auto;
+    text-align: center;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #ebeb00;
+    position: relative;
+}
+.editinput {
+    padding: 10px;
+    width: 200px;
+    background: #6d6d6d;
+    font-weight: 800;
 }
