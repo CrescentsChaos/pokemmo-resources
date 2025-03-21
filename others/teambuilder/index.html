@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Team Builder</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <div class="sticky-div">
+    <a href="../../" class="transparent-button"><img src="../../images/full-logo.png" alt="tools" style="width: 250px; height: auto;"></a> 
+        <a href="../../games/" class="transparent-button"><img src="../../images/back-ui.png" alt="tools" style="width: 30px; height: auto;" align="right"></a> <br>
+        You are here:<span style="color: rgb(77, 77, 77);"> <a href="../../" class="transparent-button"> Home</a> / <a href="../../others/" class="transparent-button"> Others</a> / Team Builder</span>
+    </div>
+        <div class="container">
+        <h1>Pokémon Team Builder</h1>
+        <textarea id="teamInput" placeholder="Paste your showdown team here. (Do not use nicknames!)"></textarea><br>
+        <button onclick="parseTeam()" class="searchbutton">Generate Team</button>
+        <div class="team-container" id="team"></div>
+    </div>
+
+    <script>
+        let team = [];
+        
+        function parseTeam() {
+            const input = document.getElementById("teamInput").value.trim();
+            
+            // If input is empty, generate a default team with 6 Pokémon
+            if (!input) {
+                team = [];
+                for (let i = 0; i < 6; i++) {
+                    team.push({
+                        name: `Name`,
+                        item: `Item`,
+                        ability: `Ability`,
+                        tera: `TeraType`,
+                        nature: `Nature`,
+                        evs: `EV Spread`,
+                        ivs: `IVs`,
+                        moves: ["Move1", "Move2", "Move3", "Move4"],
+                        sprite: `https://play.pokemonshowdown.com/sprites/gen5ani/missingno.gif`, // Placeholder sprite
+                        itemIcon: `https://play.pokemonshowdown.com/sprites/itemicons/unknown.png` // Placeholder item
+                    });
+                }
+            } else {
+                const lines = input.split("\n").map(line => line.trim()).filter(line => line);
+                team = [];
+                let pokemon = {};
+
+                lines.forEach(line => {
+                    if (line.includes("@")) {
+                        if (Object.keys(pokemon).length) team.push(pokemon);
+                        const parts = line.split("@");
+                        let nameParts = parts[0].trim().split(" ");
+
+                        // Remove gender markers (M) and (F)
+                        nameParts = nameParts.filter(word => word !== "(M)" && word !== "(F)");
+
+                        const nickname = nameParts.slice(0, -1).join(" ");
+                        const species = nameParts[nameParts.length - 1];
+
+                        pokemon = { 
+                            name: species,
+                            nickname: nickname ? nickname : null,
+                            item: parts[1].trim(), 
+                            moves: [],
+                            sprite: `https://play.pokemonshowdown.com/sprites/gen5ani/${species.toLowerCase()}.gif`,
+                            itemIcon: `https://play.pokemonshowdown.com/sprites/itemicons/${parts[1].trim().toLowerCase().replace(" ", "-")}.png`
+                        };
+                    } else if (line.startsWith("Ability:")) {
+                        pokemon.ability = line.replace("Ability:", "").trim();
+                    } else if (line.startsWith("Tera Type:")) {
+                        pokemon.tera = line.replace("Tera Type:", "").trim();
+                    } else if (line.startsWith("EVs:")) {
+                        pokemon.evs = line.replace("EVs:", "").trim();
+                    } else if (line.endsWith("Nature")) {
+                        pokemon.nature = line.replace("Nature", "").trim();
+                    } else if (line.startsWith("IVs:")) {
+                        pokemon.ivs = line.replace("IVs:", "").trim();
+                    } else if (line.startsWith("-")) {
+                        pokemon.moves.push(line.replace("-", "").trim());
+                    }
+                });
+                if (Object.keys(pokemon).length) team.push(pokemon);
+            }
+
+            renderTeam();
+        }
+
+
+
+        function renderTeam() {
+            const teamContainer = document.getElementById("team");
+            teamContainer.innerHTML = "";
+            team.forEach((pokemon, index) => {
+                teamContainer.innerHTML += `
+                    <div class="paste-card">
+                        <img src="${pokemon.sprite}" class="pokemon-sprite">
+                        <img src="${pokemon.itemIcon}" class="item-icon">
+                        <div class="details" id="details-${index}">
+                            <strong>${pokemon.name}  </strong><button onclick="toggleEdit(${index})"><img src="https://icons.veryicon.com/png/o/miscellaneous/linear-small-icon/edit-246.png" width="20px"></button><br>  
+                            Item: ${pokemon.item}<br>
+                            Ability: ${pokemon.ability}<br>
+                            Nature: ${pokemon.nature}<br>
+                            EVs: ${pokemon.evs}<br>
+                            IVs: ${pokemon.ivs}<br>
+                            <strong>Moves:</strong><br>
+                             ${pokemon.moves.map(move => `- ${move}<br>`).join("")}
+                        </div>
+                    </div>`;
+            });
+        }
+
+
+        function toggleEdit(index) {
+            const details = document.getElementById(`details-${index}`);
+            const pokemon = team[index];
+
+            details.innerHTML = `
+                <input type="text" value="${pokemon.name}" id="name-${index}" class="editinput"><br>
+                <input type="text" value="${pokemon.item}" id="item-${index}" class="editinput"><br>
+                <input type="text" value="${pokemon.ability}" id="ability-${index}" class="editinput"><br>
+                <input type="text" value="${pokemon.tera}" id="tera-${index}" class="editinput"><br>
+                <input type="text" value="${pokemon.nature}" id="nature-${index}" class="editinput"><br>
+                <input type="text" value="${pokemon.evs}" id="evs-${index}" class="editinput"><br>
+                <input type="text" value="${pokemon.ivs}" id="ivs-${index}" class="editinput">
+                <br>
+                <label>Move 1: <input type="text" value="${pokemon.moves[0] || ''}" id="move1-${index}" class="editinput"></label><br>
+                <label>Move 2: <input type="text" value="${pokemon.moves[1] || ''}" id="move2-${index}" class="editinput"></label><br>
+                <label>Move 3: <input type="text" value="${pokemon.moves[2] || ''}" id="move3-${index}" class="editinput"></label><br>
+                <label>Move 4: <input type="text" value="${pokemon.moves[3] || ''}" id="move4-${index}" class="editinput"></label>
+                <br><br>
+                <button onclick="saveEdit(${index})" class="searchbutton">Save</button>
+            `;
+        }
+
+        function saveEdit(index) {
+            const name = document.getElementById(`name-${index}`).value;
+            const item = document.getElementById(`item-${index}`).value;
+            
+            team[index] = {
+                name: name,
+                item: item,
+                ability: document.getElementById(`ability-${index}`).value,
+                tera: document.getElementById(`tera-${index}`).value,
+                nature: document.getElementById(`nature-${index}`).value,
+                evs: document.getElementById(`evs-${index}`).value,
+                ivs: document.getElementById(`ivs-${index}`).value,
+                moves: [
+                    document.getElementById(`move1-${index}`).value,
+                    document.getElementById(`move2-${index}`).value,
+                    document.getElementById(`move3-${index}`).value,
+                    document.getElementById(`move4-${index}`).value
+                ],
+                sprite: `https://play.pokemonshowdown.com/sprites/gen5ani/${name.toLowerCase()}.gif`,
+                itemIcon: `https://play.pokemonshowdown.com/sprites/itemicons/${item.toLowerCase().replace(" ", "-")}.png`
+            };
+            
+            renderTeam();
+        }
+
+    </script>
+</body>
+</html>
