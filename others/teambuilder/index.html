@@ -25,7 +25,6 @@
         function parseTeam() {
             const input = document.getElementById("teamInput").value.trim();
             
-            // If input is empty, generate a default team with 6 Pokémon
             if (!input) {
                 team = [];
                 for (let i = 0; i < 6; i++) {
@@ -46,6 +45,7 @@
                 const lines = input.split("\n").map(line => line.trim()).filter(line => line);
                 team = [];
                 let pokemon = {};
+                let isShiny = false; // Track shiny status
 
                 lines.forEach(line => {
                     if (line.includes("@")) {
@@ -64,7 +64,7 @@
                             nickname: nickname ? nickname : null,
                             item: parts[1].trim(), 
                             moves: [],
-                            sprite: `https://play.pokemonshowdown.com/sprites/gen5ani/${species.toLowerCase()}.gif`,
+                            sprite: ``, // Will be assigned after checking shiny status
                             itemIcon: `https://play.pokemonshowdown.com/sprites/itemicons/${parts[1].trim().toLowerCase().replace(" ", "-")}.png`
                         };
                     } else if (line.startsWith("Ability:")) {
@@ -77,10 +77,19 @@
                         pokemon.nature = line.replace("Nature", "").trim();
                     } else if (line.startsWith("IVs:")) {
                         pokemon.ivs = line.replace("IVs:", "").trim();
+                    } else if (line.startsWith("Shiny: Yes")) {
+                        isShiny = true; // Mark the Pokémon as shiny
                     } else if (line.startsWith("-")) {
                         pokemon.moves.push(line.replace("-", "").trim());
                     }
                 });
+
+                // Assign the correct sprite based on shiny status
+                if (pokemon.name) {
+                    const spriteType = isShiny ? "gen5ani-shiny" : "gen5ani";
+                    pokemon.sprite = `https://play.pokemonshowdown.com/sprites/${spriteType}/${pokemon.name.toLowerCase()}.gif`;
+                }
+
                 if (Object.keys(pokemon).length) team.push(pokemon);
             }
 
@@ -117,6 +126,7 @@
         function toggleEdit(index) {
             const details = document.getElementById(`details-${index}`);
             const pokemon = team[index];
+            const isShiny = pokemon.sprite.includes("gen5ani-shiny"); // Check if current sprite is shiny
 
             details.innerHTML = `
                 <input type="text" value="${pokemon.name}" id="name-${index}" class="editinput"><br>
@@ -127,6 +137,12 @@
                 <input type="text" value="${pokemon.evs}" id="evs-${index}" class="editinput"><br>
                 <input type="text" value="${pokemon.ivs}" id="ivs-${index}" class="editinput">
                 <br>
+                <br>
+                <div style="display: flex; align-items: center;">
+                    <label for="shiny-${index}">Shiny <img src="https://forums.pokemmo.com/uploads/monthly_2024_08/image.png.53d9bad896a89b190a9fcbaa0617528d.png"></label>
+            <input type="checkbox" id="shiny-${index}" ${isShiny ? "checked" : ""} style="width: auto; margin-right: 5px;">
+        </div>
+                <br>
                 <label>Move 1: <input type="text" value="${pokemon.moves[0] || ''}" id="move1-${index}" class="editinput"></label><br>
                 <label>Move 2: <input type="text" value="${pokemon.moves[1] || ''}" id="move2-${index}" class="editinput"></label><br>
                 <label>Move 3: <input type="text" value="${pokemon.moves[2] || ''}" id="move3-${index}" class="editinput"></label><br>
@@ -136,10 +152,14 @@
             `;
         }
 
+
         function saveEdit(index) {
             const name = document.getElementById(`name-${index}`).value;
             const item = document.getElementById(`item-${index}`).value;
-            
+            const isShiny = document.getElementById(`shiny-${index}`).checked; // Check if shiny is selected
+
+            const spriteType = isShiny ? "gen5ani-shiny" : "gen5ani";
+
             team[index] = {
                 name: name,
                 item: item,
@@ -154,12 +174,13 @@
                     document.getElementById(`move3-${index}`).value,
                     document.getElementById(`move4-${index}`).value
                 ],
-                sprite: `https://play.pokemonshowdown.com/sprites/gen5ani/${name.toLowerCase()}.gif`,
+                sprite: `https://play.pokemonshowdown.com/sprites/${spriteType}/${name.toLowerCase()}.gif`,
                 itemIcon: `https://play.pokemonshowdown.com/sprites/itemicons/${item.toLowerCase().replace(" ", "-")}.png`
             };
-            
+
             renderTeam();
         }
+
 
     </script>
 </body>
