@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="../../images/logo.png">
+    <meta property="og:type" content="website">
+    <title>Cards</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        #card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .card {
+            width: 150px;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(2);
+            position: relative;
+            z-index: 10;
+            image-rendering: crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sticky-div">
+        <a href="../../" class="transparent-button"><img src="../../images/full-logo.png" alt="tools" style="width: 250px; height: auto;"></a> 
+        <a href="../../games/" class="transparent-button"><img src="../../images/back-ui.png" alt="tools" style="width: 30px; height: auto;" align="right"></a> <br>
+        You are here:<span style="color: rgb(77, 77, 77);"> <a href="../../" class="transparent-button"> Home</a> / <a href="../../games/" class="transparent-button"> Games</a> / Cards</span>
+    </div>
+    <h1>Random Pokémon Cards</h1>
+    <div style="display: flex; justify-content: center;">
+    <button onclick="drawCards()" class="searchbutton">Draw 5 Cards</button></div>
+    <div id="card-container"></div>
+    <script>
+        async function fetchCards() {
+            try {
+                const response = await fetch('../../data/cards.json');
+                const cards = await response.json();
+                return cards;
+            } catch (error) {
+                console.error('Error fetching cards:', error);
+                return [];
+            }
+        }
+
+        function getRandomCardByRarity(cards, rarity, weight) {
+            const filteredCards = cards.filter(card => Object.values(card)[0][1] === rarity);
+            if (filteredCards.length === 0) return null;
+            return Math.random() < weight ? filteredCards[Math.floor(Math.random() * filteredCards.length)] : null;
+        }
+
+        async function drawCards() {
+            const cardContainer = document.getElementById('card-container');
+            cardContainer.innerHTML = '';
+            
+            const cards = await fetchCards();
+            if (cards.length === 0) return;
+            
+            const rarities = [
+                { type: "Very Common", weight: 0.75 },
+                { type: "Common", weight: 0.5 },
+                { type: "Uncommon", weight: 0.2 },
+                { type: "Rare", weight: 0.07 },
+                { type: "Very Rare", weight: 0.025 },
+                { type: "Ultra Rare", weight: 0.005 }
+            ];
+            
+            const selectedCards = [];
+            
+            while (selectedCards.length < 5) {
+                for (let { type, weight } of rarities) {
+                    if (selectedCards.length >= 5) break;
+                    const card = getRandomCardByRarity(cards, type, weight);
+                    if (card) selectedCards.push(card);
+                }
+            }
+            
+            selectedCards.forEach(card => {
+                const cardName = Object.keys(card)[0];
+                const [cardImg, cardRarity] = card[cardName];
+                
+                const imgElement = document.createElement('img');
+                imgElement.src = cardImg;
+                imgElement.alt = `${cardName} - ${cardRarity}`;
+                imgElement.classList.add('card');
+                cardContainer.appendChild(imgElement);
+            });
+        }
+    </script>
+</body>
+</html>
