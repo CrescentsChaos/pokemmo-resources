@@ -77,12 +77,16 @@
             if (cards.length === 0) return;
             
             const rarities = [
-                { type: "Very Common", weight: 0.75 },
-                { type: "Common", weight: 0.5 },
-                { type: "Uncommon", weight: 0.2 },
-                { type: "Rare", weight: 0.07 },
-                { type: "Very Rare", weight: 0.025 },
-                { type: "Ultra Rare", weight: 0.005 }
+                { type: "Common", weight: 0.75 },
+                { type: "Uncommon", weight: 0.5 },
+                { type: "Rare", weight: 0.2 },
+                { type: "Art Rare", weight: 0.08 },
+                { type: "Double Rare", weight: 0.07 },
+                { type: "Super Rare", weight: 0.025 },
+                { type: "Special Art Rare", weight: 0.010 },
+                { type: "Ultra Rare", weight: 0.005 },
+                { type: "Immersive Rare", weight: 0.0025 },
+                { type: "Crown Rare", weight: 0.001 }
             ];
             
             const selectedCards = [];
