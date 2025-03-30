@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="../../images/logo.png">
+    <meta property="og:type" content="website">
+    <title>Cards</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        #card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            perspective: 1000px; /* Adds 3D depth */
+        }
+
+        .card-wrapper {
+            position: relative;
+            width: 150px;
+            height: auto;
+            transform-style: preserve-3d;
+        }
+
+        .card {
+            width: 150px;
+            height: auto;
+            transition: transform 0.1s ease-out, box-shadow 0.2s ease-out;
+            transform-style: preserve-3d;
+            z-index: 1;
+            will-change: transform; /* Helps with smooth performance */
+        }
+
+        .card:hover {
+            z-index: 10;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sticky-div">
+        <a href="../../" class="transparent-button"><img src="../../images/full-logo.png" alt="tools" style="width: 250px; height: auto;"></a> 
+        <a href="../../games/" class="transparent-button"><img src="../../images/back-ui.png" alt="tools" style="width: 30px; height: auto;" align="right"></a> <br>
+        You are here:<span style="color: rgb(77, 77, 77);"> <a href="../../" class="transparent-button"> Home</a> / <a href="../../games/" class="transparent-button"> Games</a> / Cards</span>
+    </div>
+    <h1>Random Pokémon Cards</h1>
+    <div style="display: flex; justify-content: center;">
+    <button onclick="drawCards()" class="searchbutton">Draw 5 Cards</button></div>
+    <div id="card-container"></div>
+    <script>
+        async function fetchCards() {
+            try {
+                const response = await fetch('../../data/cards.json');
+                const cards = await response.json();
+                return cards;
+            } catch (error) {
+                console.error('Error fetching cards:', error);
+                return [];
+            }
+        }
+
+        function getRandomCardByRarity(cards, rarity, weight) {
+            const filteredCards = cards.filter(card => Object.values(card)[0][1] === rarity);
+            if (filteredCards.length === 0) return null;
+            return Math.random() < weight ? filteredCards[Math.floor(Math.random() * filteredCards.length)] : null;
+        }
+
+        async function drawCards() {
+            const cardContainer = document.getElementById('card-container');
+            cardContainer.innerHTML = '';
+            
+            const cards = await fetchCards();
+            if (cards.length === 0) return;
+            
+            const rarities = [
+                { type: "Common", weight: 0.75 },
+                { type: "Uncommon", weight: 0.5 },
+                { type: "Rare", weight: 0.2 },
+                { type: "Art Rare", weight: 0.08 },
+                { type: "Double Rare", weight: 0.07 },
+                { type: "Super Rare", weight: 0.025 },
+                { type: "ACE SPEC Rare", weight: 0.020 },
+                { type: "Special Art Rare", weight: 0.010 },
+                { type: "Ultra Rare", weight: 0.005 },
+                { type: "Immersive Rare", weight: 0.0025 },
+                { type: "Shiny Rare", weight: 0.002 },
+                { type: "Shiny Super Rare", weight: 0.0015 },
+                { type: "Crown Rare", weight: 0.001 }
+            ];
+            
+            const selectedCards = [];
+            
+            while (selectedCards.length < 5) {
+                for (let { type, weight } of rarities) {
+                    if (selectedCards.length >= 5) break;
+                    const card = getRandomCardByRarity(cards, type, weight);
+                    if (card) selectedCards.push(card);
+                }
+            }
+            
+            selectedCards.forEach(card => {
+                const cardName = Object.keys(card)[0];
+                const [cardImg, cardRarity] = card[cardName];
+                
+                const imgElement = document.createElement('img');
+                imgElement.src = cardImg;
+                imgElement.alt = `${cardName} - ${cardRarity}`;
+                imgElement.classList.add('card');
+                cardContainer.appendChild(imgElement);
+            });
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById("card-container");
+
+            container.addEventListener("mousemove", (event) => {
+                const card = event.target.closest(".card");
+                if (!card) return;
+
+                const rect = card.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                // Adjust rotation based on mouse position
+                const rotateX = ((centerY - y) / centerY) * 15; // Tilt up/down
+                const rotateY = ((x - centerX) / centerX) * 15; // Tilt left/right
+
+                // Apply smooth rotation & scale
+                card.style.transform = `scale(2) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                card.style.zIndex = "10";
+                card.style.boxShadow = "0px 20px 30px rgba(0, 0, 0, 0.4)";
+            });
+
+            container.addEventListener("mouseleave", () => {
+                document.querySelectorAll(".card").forEach(card => {
+                    card.style.transform = "scale(1) rotateX(0deg) rotateY(0deg)";
+                    card.style.zIndex = "1";
+                    card.style.boxShadow = "none";
+                });
+            });
+        });
+
+
+    </script>
+</body>
+</html>

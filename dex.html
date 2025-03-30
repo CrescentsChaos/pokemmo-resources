@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .pokedex { display: flex; flex-direction: column; align-items: center; }
+        .pokemon-card { border: 2px solid #333; padding: 20px; margin: 10px; width: 400px; text-align: left; }
+        img { max-width: 100px; display: block; margin: 0 auto; }
+        .stat-bar { height: 10px; margin: 5px 0; }
+        .search-box { margin-bottom: 20px; }
+        .type-icon { width: 50px; height: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #333; padding: 5px; text-align: center; }
+        .evolution-chain { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 10px; }
+        .evolution-chain img { width: 80px; height: 80px; }
+    </style>
+</head>
+<body>
+    <h1>Pokédex</h1>
+    <input type="text" id="search" class="search-box" placeholder="Search Pokémon..." onkeyup="searchPokemon()">
+    <div class="pokedex" id="pokedex"></div>
+
+    <script>
+        let pokemonData = [];
+
+        function searchPokemon() {
+            const query = document.getElementById('search').value.toLowerCase();
+            const filteredData = pokemonData.filter(pokemon => pokemon.Name.toLowerCase().includes(query));
+            displayPokedex(filteredData);
+        }
+
+        function displayPokedex(data) {
+            const pokedexDiv = document.getElementById('pokedex');
+            pokedexDiv.innerHTML = '';
+            data.forEach(pokemon => {
+                const card = document.createElement('div');
+                card.className = 'pokemon-card';
+                const types = pokemon.Type.split('/').map(type => `<img class="type-icon" src="https://play.pokemonshowdown.com/sprites/types/${type}.png" alt="${type}">`).join(' ');
+                
+                let evolutionHTML = '<div class="evolution-chain">';
+                let evoChain = Object.entries(pokemon.Evolution);
+                let previous = pokemon.Name;
+                evolutionHTML += `<img src="https://play.pokemonshowdown.com/sprites/ani/${previous.toLowerCase()}.gif" alt="${previous}"><span></span>`;
+                evoChain.forEach(([level, nextEvo]) => {
+                    evolutionHTML += `<span>Lv. ${level}</span><span>→</span>`;
+                    evolutionHTML += `<img src="https://play.pokemonshowdown.com/sprites/ani/${nextEvo.toLowerCase()}.gif" alt="${nextEvo}">`;
+                });
+                evolutionHTML += '</div>';
+                
+                card.innerHTML = `
+                    <h2>${pokemon.Name}</h2>
+                    <img src="${pokemon.Sprite}" alt="${pokemon.Name}">
+                    <p><strong>Type:</strong> ${types}</p>
+                    <p><strong>Egg Group:</strong> ${pokemon["Egg Group"]}</p>
+                    <p><strong>Abilities:</strong> ${pokemon.Abilities.join(', ')}</p>
+                    <p><strong>Hidden Ability:</strong> ${pokemon["Hidden Ability"]}</p>
+                    <p><strong>Base Stats:</strong></p>
+                    <p>HP: ${pokemon.HP} <div class="stat-bar" style="width: ${pokemon.HP}px; background-color: red;"></div></p>
+                    <p>Atk: ${pokemon.Atk} <div class="stat-bar" style="width: ${pokemon.Atk}px; background-color: orange;"></div></p>
+                    <p>Def: ${pokemon.Def} <div class="stat-bar" style="width: ${pokemon.Def}px; background-color: yellow;"></div></p>
+                    <p>Sp. Atk: ${pokemon.SpAtk} <div class="stat-bar" style="width: ${pokemon.SpAtk}px; background-color: blue;"></div></p>
+                    <p>Sp. Def: ${pokemon.SpDef} <div class="stat-bar" style="width: ${pokemon.SpDef}px; background-color: purple;"></div></p>
+                    <p>Speed: ${pokemon.Speed} <div class="stat-bar" style="width: ${pokemon.Speed}px; background-color: green;"></div></p>
+                    <p><strong>Moves:</strong></p>
+                    <ul>
+                        ${Object.entries(pokemon.Moves).map(([level, moves]) => moves.map(move => `<li>${level}: ${move}</li>`).join('')).join('')}
+                    </ul>
+                    <p><strong>Wild Locations:</strong></p>
+                    <table>
+                        <tr><th>Type</th><th>Region</th><th>Location</th><th>Level</th><th>Rarity</th></tr>
+                        ${pokemon["Wild Location"].map(loc => `<tr><td>${loc[0]}</td><td>${loc[1]}</td><td>${loc[2]}</td><td>${loc[3]}</td><td>${loc[4]}</td></tr>`).join('')}
+                    </table>
+                    <p><strong>Evolution:</strong></p>
+                    ${evolutionHTML}
+                `;
+                pokedexDiv.appendChild(card);
+            });
+        }
+
+        fetch('data/pokedex.json')
+            .then(response => response.json())
+            .then(data => {
+                pokemonData = data;
+                displayPokedex(data);
+            })
+            .catch(error => console.error('Error loading Pokédex:', error));
+    </script>
+</body>
+</html>
