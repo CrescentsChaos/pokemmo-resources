@@ -27,18 +27,18 @@ function updateGameWeek() {
 }
 function getSeason() {
     const seasons = [
-        "Spring",  // January
-        "Summer",  // February
-        "Autumn",  // March
-        "Winter",  // April
-        "Spring",  // May
-        "Summer",  // June
-        "Autumn",  // July
-        "Winter",  // August
-        "Spring",  // September
-        "Summer",  // October
-        "Autumn",  // November
-        "Winter"   // December
+        "🌺 Spring",  // January
+        "🔥 Summer",  // February
+        "🍂 Autumn",  // March
+        "❄️ Winter",  // April
+        "🌺 Spring",  // May
+        "🔥 Summer",  // June
+        "🍂 Autumn",  // July
+        "❄️ Winter",  // August
+        "🌺 Spring",  // September
+        "🔥 Summer",  // October
+        "🍂 Autumn",  // November
+        "❄️ Winter"   // December
     ];
     
     const currentMonth = new Date().getMonth(); // 0 = January, 11 = December
