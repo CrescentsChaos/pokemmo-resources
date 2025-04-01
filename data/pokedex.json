@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 [
     {
         "Name": "Bulbasaur",
@@ -73,80 +72,4 @@
             "32": "Venusaur"
         }
     }
-=======
-[
-    {
-        "Name": "Bulbasaur",
-        "Type": "Grass/Poison",
-        "HP": 45,
-        "Atk": 49,
-        "Def": 49,
-        "SpAtk": 65,
-        "SpDef": 65,
-        "Speed": 45,
-        "Moves": {
-            "Start": ["Tackle", "Growl"],
-            "Lv. 3": ["Growl", "Vine Whip"],
-            "Lv. 6": ["Growth"],
-            "Lv. 9": ["Leech Seed"],
-            "Lv. 12": ["Razor Leaf"],
-            "Lv. 14": ["Poison Powder", "Sleep Powder"],
-            "Lv. 18": ["Seed Bomb", "Take Down"],
-            "Lv. 24": ["Sweet Scent"],
-            "Lv. 27": ["Synthesis"]
-
-        },
-        "Weight": 15.2,
-        "Abilities": ["Overgrow"],
-        "Hidden Ability": "Chlorophyll",
-        "Held Item": "None",
-        "Egg Group": "Monster/Grass",
-        "EV Yield": "+1 Sp. Atk",
-        "PvP Tier": "Untiered",
-        "Sprite":"http://play.pokemonshowdown.com/sprites/ani/bulbasaur.gif",
-        "Wild Location": [ 
-            ["Grass","Kanto","Viridian Forest","10","Lure"]
-        ],
-        "Evolution": {
-            "16": "Ivysaur",
-            "32": "Venusaur"
-        }
-    },
-    {
-        "Name": "Ivysaur",
-        "Type": "Grass/Poison",
-        "HP": 45,
-        "Atk": 49,
-        "Def": 49,
-        "SpAtk": 65,
-        "SpDef": 65,
-        "Speed": 45,
-        "Moves": {
-            "Start": ["Tackle", "Growl"],
-            "Lv. 3": ["Growl", "Vine Whip"],
-            "Lv. 6": ["Growth"],
-            "Lv. 9": ["Leech Seed"],
-            "Lv. 12": ["Razor Leaf"],
-            "Lv. 14": ["Poison Powder", "Sleep Powder"],
-            "Lv. 18": ["Seed Bomb", "Take Down"],
-            "Lv. 24": ["Sweet Scent"],
-            "Lv. 27": ["Synthesis"]
-
-        },
-        "Weight": 15.2,
-        "Abilities": ["Overgrow"],
-        "Hidden Ability": "Chlorophyll",
-        "Held Item": "None",
-        "Egg Group": "Monster/Grass",
-        "EV Yield": "+1 Sp. Atk",
-        "PvP Tier": "Untiered",
-        "Sprite":"http://play.pokemonshowdown.com/sprites/ani/ivysaur.gif",
-        "Wild Location": [ 
-            ["Grass","Kanto","Viridian Forest","10","Lure"]
-        ],
-        "Evolution": {
-            "32": "Venusaur"
-        }
-    }
->>>>>>> e32b61f59e6986ce32ca71b3c2f2bcb2f5807b50
 ]
