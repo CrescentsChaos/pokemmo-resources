@@ -25,9 +25,28 @@ function updateGameWeek() {
 
     document.getElementById("pokeDay").innerText = `📅 In-game Day: ${currentPokeDay}`;
 }
-
+function getSeason() {
+    const seasons = [
+        "Spring",  // January
+        "Summer",  // February
+        "Autumn",  // March
+        "Winter",  // April
+        "Spring",  // May
+        "Summer",  // June
+        "Autumn",  // July
+        "Winter",  // August
+        "Spring",  // September
+        "Summer",  // October
+        "Autumn",  // November
+        "Winter"   // December
+    ];
+    
+    const currentMonth = new Date().getMonth(); // 0 = January, 11 = December
+    document.getElementById("season").textContent = "The current season is: " + seasons[currentMonth];
+}
 
 updatePokeMMOTime();
 updateGameWeek();
 setInterval(updatePokeMMOTime, 1000);
 setInterval(updateGameWeek, 5000);
+window.onload = getSeason;
