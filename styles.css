@@ -282,13 +282,28 @@ a {
     transition: transform 0.3s;
 }
 
+.transparent-button {
+    background-color: transparent;
+    border: none;
+    color: lightgray;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+    font-weight: 800;
+}
+
 .transparent-button:hover {
     transform: scale(1.05);
+}
+
+.transparent-button:active {
+    color: darkgray;
 }
 
 .transparent-button img {
     width: 80px;
 }
+
 
 .back {
     display: flexbox;
