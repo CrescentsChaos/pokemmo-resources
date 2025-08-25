@@ -38,7 +38,7 @@
                         evs: `EV Spread`,
                         ivs: `IVs`,
                         moves: ["Move1", "Move2", "Move3", "Move4"],
-                        sprite: `https://play.pokemonshowdown.com/sprites/gen5ani/missingno.gif`,
+                        sprite: `https://play.pokemonshowdown.com/sprites/ani/missingno.gif`,
                         itemIcon: `https://play.pokemonshowdown.com/sprites/itemicons/unknown.png`
                     });
                 }
@@ -52,7 +52,7 @@
                     if (line.includes("@")) {
                         // Save previous Pokémon if it exists
                         if (Object.keys(pokemon).length) {
-                            const spriteType = isShiny ? "gen5ani-shiny" : "gen5ani";
+                            const spriteType = isShiny ? "ani-shiny" : "ani";
                             pokemon.sprite = `https://play.pokemonshowdown.com/sprites/${spriteType}/${pokemon.name.toLowerCase()}.gif`;
                             team.push(pokemon);
                         }
@@ -95,7 +95,7 @@
 
                 // Push last Pokémon after loop
                 if (Object.keys(pokemon).length) {
-                    const spriteType = isShiny ? "gen5ani-shiny" : "gen5ani";
+                    const spriteType = isShiny ? "ani-shiny" : "ani";
                     pokemon.sprite = `https://play.pokemonshowdown.com/sprites/${spriteType}/${pokemon.name.toLowerCase()}.gif`;
                     team.push(pokemon);
                 }
@@ -135,7 +135,7 @@
         function toggleEdit(index) {
             const details = document.getElementById(`details-${index}`);
             const pokemon = team[index];
-            const isShiny = pokemon.sprite.includes("gen5ani-shiny"); // Check if current sprite is shiny
+            const isShiny = pokemon.sprite.includes("ani-shiny"); // Check if current sprite is shiny
 
             details.innerHTML = `
                 <input type="text" value="${pokemon.name}" id="name-${index}" class="editinput"><br>
@@ -167,7 +167,7 @@
             const item = document.getElementById(`item-${index}`).value;
             const isShiny = document.getElementById(`shiny-${index}`).checked; // Check if shiny is selected
 
-            const spriteType = isShiny ? "gen5ani-shiny" : "gen5ani";
+            const spriteType = isShiny ? "ani-shiny" : "ani";
 
             team[index] = {
                 name: name,
