@@ -38,23 +38,31 @@
                         evs: `EV Spread`,
                         ivs: `IVs`,
                         moves: ["Move1", "Move2", "Move3", "Move4"],
-                        sprite: `https://play.pokemonshowdown.com/sprites/gen5ani/missingno.gif`, // Placeholder sprite
-                        itemIcon: `https://play.pokemonshowdown.com/sprites/itemicons/unknown.png` // Placeholder item
+                        sprite: `https://play.pokemonshowdown.com/sprites/gen5ani/missingno.gif`,
+                        itemIcon: `https://play.pokemonshowdown.com/sprites/itemicons/unknown.png`
                     });
                 }
             } else {
                 const lines = input.split("\n").map(line => line.trim()).filter(line => line);
                 team = [];
                 let pokemon = {};
-                let isShiny = false; // Track shiny status
+                let isShiny = false;
 
                 lines.forEach(line => {
                     if (line.includes("@")) {
-                        if (Object.keys(pokemon).length) team.push(pokemon);
+                        // Save previous Pokémon if it exists
+                        if (Object.keys(pokemon).length) {
+                            const spriteType = isShiny ? "gen5ani-shiny" : "gen5ani";
+                            pokemon.sprite = `https://play.pokemonshowdown.com/sprites/${spriteType}/${pokemon.name.toLowerCase()}.gif`;
+                            team.push(pokemon);
+                        }
+
+                        // Reset shiny for new Pokémon
+                        isShiny = false;
+
+                        // Start new Pokémon
                         const parts = line.split("@");
                         let nameParts = parts[0].trim().split(" ");
-
-                        // Remove gender markers (M) and (F)
                         nameParts = nameParts.filter(word => word !== "(M)" && word !== "(F)");
 
                         const nickname = nameParts.slice(0, -1).join(" ");
@@ -65,7 +73,7 @@
                             nickname: nickname ? nickname : null,
                             item: parts[1].trim(), 
                             moves: [],
-                            sprite: ``, // Will be assigned after checking shiny status
+                            sprite: ``,
                             itemIcon: `https://play.pokemonshowdown.com/sprites/itemicons/${parts[1].trim().toLowerCase().replace(" ", "-")}.png`
                         };
                     } else if (line.startsWith("Ability:")) {
@@ -79,23 +87,23 @@
                     } else if (line.startsWith("IVs:")) {
                         pokemon.ivs = line.replace("IVs:", "").trim();
                     } else if (line.startsWith("Shiny: Yes")) {
-                        isShiny = true; // Mark the Pokémon as shiny
+                        isShiny = true;
                     } else if (line.startsWith("-")) {
                         pokemon.moves.push(line.replace("-", "").trim());
                     }
                 });
 
-                // Assign the correct sprite based on shiny status
-                if (pokemon.name) {
-                    const spriteType = isShiny ? "ani-shiny" : "ani";
+                // Push last Pokémon after loop
+                if (Object.keys(pokemon).length) {
+                    const spriteType = isShiny ? "gen5ani-shiny" : "gen5ani";
                     pokemon.sprite = `https://play.pokemonshowdown.com/sprites/${spriteType}/${pokemon.name.toLowerCase()}.gif`;
+                    team.push(pokemon);
                 }
-
-                if (Object.keys(pokemon).length) team.push(pokemon);
             }
 
             renderTeam();
         }
+
 
 
 
