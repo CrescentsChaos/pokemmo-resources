@@ -62,6 +62,19 @@ body::before {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     margin: 1px;
 }
+.items-needed {
+    text-align: center;
+    font-size: 1rem;
+    color: #b7b7b7;
+    background-color: #000000;
+    border-radius: 10px;
+    border-color: #f4ea2a;
+    border-style: solid;
+    padding: min(1em, 2%);
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 1px;
+}
 .legendary-container {
     width: 250px;
     height: 200px;
