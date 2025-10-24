@@ -50,7 +50,7 @@
     </div>
     <h1>Random Pokémon Cards</h1>
     <div style="display: flex; justify-content: center;">
-    <button onclick="drawCards()" class="searchbutton">Draw 5 Cards</button></div>
+    <button onclick="drawCards()" class="searchbutton">Draw 4 Cards</button></div>
     <div id="card-container"></div>
     <script>
         async function fetchCards() {
@@ -81,8 +81,8 @@
                 { type: "Common", weight: 0.75 },
                 { type: "Uncommon", weight: 0.5 },
                 { type: "Rare", weight: 0.2 },
-                { type: "Art Rare", weight: 0.08 },
-                { type: "Double Rare", weight: 0.07 },
+                { type: "Art Rare", weight: 0.1 },
+                { type: "Double Rare", weight: 0.1 },
                 { type: "Super Rare", weight: 0.025 },
                 { type: "ACE SPEC Rare", weight: 0.020 },
                 { type: "Special Art Rare", weight: 0.010 },
@@ -95,9 +95,9 @@
             
             const selectedCards = [];
             
-            while (selectedCards.length < 5) {
+            while (selectedCards.length < 4) {
                 for (let { type, weight } of rarities) {
-                    if (selectedCards.length >= 5) break;
+                    if (selectedCards.length >= 4) break;
                     const card = getRandomCardByRarity(cards, type, weight);
                     if (card) selectedCards.push(card);
                 }
