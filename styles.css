@@ -118,13 +118,13 @@ body::before {
 .dragonpokemon-name { color: rgb(63, 33, 255); }
 .poisonpokemon-name { color: rgb(122, 41, 184); }
 .flyingpokemon-name { color: rgb(200, 238, 252); }
-.normalpokemon-name { color: rgb(168, 168, 168); }
+.normalpokemon-name { color: rgb(167, 80, 130); }
 .grasspokemon-name { color: rgb(14, 110, 9); }
 .darkpokemon-name { color: rgb(67, 55, 55); }
 .ghostpokemon-name { color: rgb(72, 41, 116); }
 .groundpokemon-name { color: rgb(191, 152, 53); }
 .rockpokemon-name { color: rgb(205, 198, 59); }
-.fightingpokemon-name { color: rgb(163, 17, 17); }
+.fightingpokemon-name { color: rgb(163, 70, 17); }
 .steelpokemon-name { color: rgb(159, 159, 159); }
 
 .hp { color: rgb(0, 214, 57); }
