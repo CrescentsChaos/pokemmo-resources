@@ -51,8 +51,11 @@ body::before {
 .gym-card{
     display: inline-grid;
     grid-template-columns: auto auto auto;
-    /*background-color: dodgerblue;*/
-    padding: 10px;
+    background-color:#222;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    border-radius: 12px;
 }
 .gym-card img{
     max-width: 100%;
