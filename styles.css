@@ -48,6 +48,22 @@ body::before {
     gap: 1px; /* Space between cards */
     align-items: center;
 }
+.gym-card{
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    /*background-color: dodgerblue;*/
+    padding: 10px;
+}
+.gym-card img{
+    max-width: 100%;
+}
+.gym-card div{
+  /* background-color: #f1f1f1; */
+  /* border: 1px solid black; */
+  padding: 10px;
+  font-size: 15;
+  text-align: center;
+}
 .pokemon-card {
     width: 250px;
     height: 350px;  
