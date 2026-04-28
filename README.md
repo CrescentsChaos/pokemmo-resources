@@ -8,4 +8,4 @@
 
 **Contact:** crescentslegacy@gmail.com
 
-**YouTube:** [Crescent's Chaos]([https://github.com/CrescentsChaos](https://www.youtube.com/@crescentschaos/))
+**YouTube:** [Crescent's Chaos](https://www.youtube.com/@crescentschaos/)
