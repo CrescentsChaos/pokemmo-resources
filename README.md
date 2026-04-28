@@ -5,3 +5,7 @@
 **Contributors:**
 * [ThiSous](https://github.com/ThiSous)
 * [scatteredwolf](https://github.com/scatteredwolf)
+
+**Contact:** crescentslegacy@gmail.com
+
+**YouTube:** [Crescent's Chaos]([https://github.com/CrescentsChaos](https://www.youtube.com/@crescentschaos/))
