@@ -48,6 +48,36 @@ body::before {
     gap: 1px; /* Space between cards */
     align-items: center;
 }
+.note{
+    color:darkgoldenrod;
+}
+.fight-section{
+    display: inline-block;
+    background-color:#222;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    border-radius: 12px;
+}
+.gym-card{
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    background-color:#222;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    border-radius: 12px;
+}
+.gym-card img{
+    max-width: 100%;
+}
+.gym-card div{
+  /* background-color: #f1f1f1; */
+  /* border: 1px solid black; */
+  padding: 10px;
+  font-size: 15;
+  text-align: center;
+}
 .pokemon-card {
     width: 250px;
     height: 350px;  
@@ -118,13 +148,13 @@ body::before {
 .dragonpokemon-name { color: rgb(63, 33, 255); }
 .poisonpokemon-name { color: rgb(122, 41, 184); }
 .flyingpokemon-name { color: rgb(200, 238, 252); }
-.normalpokemon-name { color: rgb(168, 168, 168); }
+.normalpokemon-name { color: rgb(167, 80, 130); }
 .grasspokemon-name { color: rgb(14, 110, 9); }
 .darkpokemon-name { color: rgb(67, 55, 55); }
 .ghostpokemon-name { color: rgb(72, 41, 116); }
 .groundpokemon-name { color: rgb(191, 152, 53); }
 .rockpokemon-name { color: rgb(205, 198, 59); }
-.fightingpokemon-name { color: rgb(163, 17, 17); }
+.fightingpokemon-name { color: rgb(163, 70, 17); }
 .steelpokemon-name { color: rgb(159, 159, 159); }
 
 .hp { color: rgb(0, 214, 57); }
