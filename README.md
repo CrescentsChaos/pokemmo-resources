@@ -1,2 +1,2 @@
 Credits: CrescentsChaos
-Contributors: 
+Contributors: ThiSous, 
