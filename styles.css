@@ -48,6 +48,17 @@ body::before {
     gap: 1px; /* Space between cards */
     align-items: center;
 }
+.note{
+    color:darkgoldenrod;
+}
+.fight-section{
+    display: inline-block;
+    background-color:#222;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    border-radius: 12px;
+}
 .gym-card{
     display: inline-grid;
     grid-template-columns: auto auto auto;
